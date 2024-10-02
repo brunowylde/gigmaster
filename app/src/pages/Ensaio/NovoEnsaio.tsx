@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Song } from '../../interfaces/song';
 import MusicaEnsaio from '../../components/MusicaEnsaio';
+import ButtonDefault from '../../components/ButtonDefault';
 
 interface SongsSelected {
   start: { name: string; musicas: Song[] };
@@ -132,11 +133,12 @@ function NovoEnsaio() {
           <div className='text-sm font-semibold'>Selecionar faixas</div>
         </div>
         <div className='mt-8'>
-          <button 
+          <ButtonDefault optionalClass="w-full" texto="Gerar Setlist" onClick={newAutoSetlist} />
+          {/* <button 
             className='w-full py-2.5 font-bold text-sm bg-purple-600 rounded-md'
             onClick={newAutoSetlist}>
             Gerar Setlist
-          </button>
+          </button> */}
         </div>
 
         <div className='mt-10'>

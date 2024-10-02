@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Song } from '../../interfaces/song';
 import { API_URL } from '../../config'
 
+import ButtonDefault from '../../components/ButtonDefault'
+
 function MinhasMusicas() {
   const [search, setSearch] = useState<string>('');
   const [songs, setSongs] = useState<Song[]>([]);
@@ -61,11 +63,7 @@ function MinhasMusicas() {
               onChange={(e) => setSearch(e.target.value)}
               id='duracao'
             />
-            <button
-              onClick={ searchSong }
-              className='bg-purple-500 text-white text-sm rounded-md h-full py-2 px-4'>
-              Buscar
-            </button>
+            <ButtonDefault onClick={ searchSong } texto='Buscar' />
           </div>
         </div>
         <hr className='my-4 border-gray-400/15' />
