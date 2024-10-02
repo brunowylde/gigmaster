@@ -1,16 +1,21 @@
 interface ButtonProps {
   texto: string,
+  textoLoading?: string,
+  loading?: boolean,
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   optionalClass?: string
 }
 
-function ButtonDefault({ texto, onClick, optionalClass }: ButtonProps) {
+const classes = "bg-purple-500 disabled:bg-gray-400 text-white text-sm rounded-md h-full py-2 px-4"
+
+function ButtonDefault({ texto, textoLoading, loading, onClick, optionalClass }: ButtonProps) {
   return (
     <>
       <button 
+        disabled={ loading }
         onClick={ onClick }
-        className={`bg-purple-500 text-white text-sm rounded-md h-full py-2 px-4 ${optionalClass}`}>
-        { texto }
+        className={` ${classes} ${optionalClass}`}>
+        { loading ? textoLoading : texto }
       </button>
     </>
   )
