@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Song } from '../../interfaces/song';
 import MusicaEnsaio from '../../components/MusicaEnsaio';
 import ButtonDefault from '../../components/ButtonDefault';
+import { API_URL } from '../../config'
 
 interface SongsSelected {
   start: { name: string; musicas: Song[] };
@@ -36,7 +37,7 @@ function NovoEnsaio() {
 
   const getSongs = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:3000/musica');
+      const response = await fetch(API_URL + '/musica');
       if (!response.ok) throw new Error('Erro ao buscar música');
       const data = await response.json();
       setSongs(data);
